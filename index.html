@@ -44,17 +44,17 @@
   </div>
 
   <script>
-    // The vulnerable part where we expose sensitive data (this is where XSSI happens)
-    const jsonEndpoint = 'https://raw.githubusercontent.com/RomanVanHalen/xssi-challenge/main/flag.json';
+    // This is the vulnerable part where the flag is being exposed.
+    // Using a <script> tag to fetch the flag.
+    var script = document.createElement('script');
+    script.src = 'https://raw.githubusercontent.com/RomanVanHalen/xssi/main/flag.json?callback=handleFlag';
+    document.body.appendChild(script);
 
-    fetch(jsonEndpoint)
-      .then(response => response.json())
-      .then(data => {
-        // Normally, this would be where you use the data (the flag will be in this response)
-        console.log("Flag Retrieved:", data);
-        alert("Flag Retrieved! Check the console.");
-      })
-      .catch(err => console.error("Error:", err));
+    // This callback will handle the response from the script tag.
+    function handleFlag(data) {
+      console.log('Flag Retrieved:', data);
+      alert('Flag Retrieved! Check the console.');
+    }
   </script>
 
 </body>
