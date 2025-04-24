@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XSSI Vulnerability Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #1e1e2f;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      max-width: 600px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ffcc00;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>XSSI Vulnerability</h1>
+    <p>This page has a vulnerable endpoint that you can exploit using a script tag.</p>
+    <p>The flag is hidden inside the JSON response, and you need to retrieve it using **XSSI**.</p>
+    <p>Use your **browser’s developer tools** and **exploit the vulnerability** to retrieve the flag!</p>
+    <p><em>💡 Hint: Look for the endpoint that returns JSON.</em></p>
+  </div>
+
+  <script>
+    // The vulnerable part where we expose sensitive data (this is where XSSI happens)
+    const jsonEndpoint = 'https://raw.githubusercontent.com/RomanVanHalen/xssi-challenge/main/flag.json';
+
+    fetch(jsonEndpoint)
+      .then(response => response.json())
+      .then(data => {
+        // Normally, this would be where you use the data (the flag will be in this response)
+        console.log("Flag Retrieved:", data);
+        alert("Flag Retrieved! Check the console.");
+      })
+      .catch(err => console.error("Error:", err));
+  </script>
+
+</body>
+</html>
