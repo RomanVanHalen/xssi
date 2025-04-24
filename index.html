@@ -44,17 +44,12 @@
   </div>
 
   <script>
-    // This is the vulnerable part where the flag is being exposed.
-    // Using a <script> tag to fetch the flag.
-    var script = document.createElement('script');
-    script.src = 'https://raw.githubusercontent.com/RomanVanHalen/xssi/main/flag.json?callback=handleFlag';
-    document.body.appendChild(script);
+    // Let's directly embed the flag for testing purposes
+    const flag = "flag{xssi_vulnerability_exploited}";
 
-    // This callback will handle the response from the script tag.
-    function handleFlag(data) {
-      console.log('Flag Retrieved:', data);
-      alert('Flag Retrieved! Check the console.');
-    }
+    // Simulate an XSSI attack by exposing the flag
+    console.log("Flag Retrieved:", flag);
+    alert("Flag Retrieved: " + flag);
   </script>
 
 </body>
