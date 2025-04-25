@@ -38,19 +38,9 @@
   <div class="container">
     <h1>XSSI Vulnerability</h1>
     <p>This page has a vulnerable endpoint that you can exploit using a script tag.</p>
-    <p>The flag is hidden inside the JSON response, and you need to retrieve it using **XSSI**.</p>
-    <p>Use your **browser’s developer tools** and **exploit the vulnerability** to retrieve the flag!</p>
-    <p><em>💡 Hint: Look for the endpoint that returns JSON.</em></p>
+    <p>The flag is hidden inside a JavaScript response, and you need to retrieve it using <strong>XSSI</strong>.</p>
+    <p><em>💡 Hint: Try using <code>&lt;script src="flag.js"&gt;&lt;/script&gt;</code> in your console.</em></p>
   </div>
-
-  <script>
-    // Let's directly embed the flag for testing purposes
-    const flag = "flag{xssi_vulnerability_exploited}";
-
-    // Simulate an XSSI attack by exposing the flag
-    console.log("Flag Retrieved:", flag);
-    alert("Flag Retrieved: " + flag);
-  </script>
 
 </body>
 </html>

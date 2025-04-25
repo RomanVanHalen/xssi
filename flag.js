@@ -1,4 +1,4 @@
-// secret.js - silent XSSI leak
-window.__xssi_leak = {
-  flag: 'flag{XSSI_Leaking_Secrets_Like_A_Ninja}'
+// flag.js — vulnerable to XSSI
+window.__leaked_data = {
+  flag: "FLAG{xrt53442bhya}"
 };
